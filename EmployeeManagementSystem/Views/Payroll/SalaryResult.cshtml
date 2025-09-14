@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Salary Result";
+}
+
+<div class="container py-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="mb-4">📊 Salary Computation</h2>
+
+        <h5>Employee Details</h5>
+        <ul class="list-group mb-4">
+            <li class="list-group-item bg-dark text-light">ID: @ViewBag.EmployeeID</li>
+            <li class="list-group-item bg-dark text-light">Name: @ViewBag.EmployeeName</li>
+            <li class="list-group-item bg-dark text-light">Position: @ViewBag.Position</li>
+            <li class="list-group-item bg-dark text-light">Gender: @ViewBag.Gender</li>
+        </ul>
+
+        <h5>Salary Breakdown</h5>
+        <ul class="list-group">
+            <li class="list-group-item bg-dark text-light">Rate Per Day: @ViewBag.RatePerDay</li>
+            <li class="list-group-item bg-dark text-light">Days Worked: @ViewBag.DaysWorked</li>
+            <li class="list-group-item bg-dark text-light">Gross Pay: @ViewBag.GrossPay</li>
+            <li class="list-group-item bg-dark text-light">SSS: @ViewBag.SSS</li>
+            <li class="list-group-item bg-dark text-light">PhilHealth: @ViewBag.PhilHealth</li>
+            <li class="list-group-item bg-dark text-light">Pag-ibig: @ViewBag.PagIbig</li>
+            <li class="list-group-item bg-dark text-light">Tax: @ViewBag.Tax</li>
+            <li class="list-group-item bg-success text-light fw-bold">Net Pay: @ViewBag.NetPay</li>
+        </ul>
+
+        <a asp-action="Salary" class="btn btn-primary mt-4">Back</a>
+    </div>
+</div>

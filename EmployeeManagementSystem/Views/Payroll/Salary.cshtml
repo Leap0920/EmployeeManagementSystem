@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Payroll System";
+}
+
+<div class="container py-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="mb-4">💼 Payroll System</h2>
+
+        @using (Html.BeginForm("Salary", "Payroll", FormMethod.Post))
+        {
+            <div class="mb-3">
+                <label class="form-label">Employee ID</label>
+                <input name="employeeID" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Employee Name</label>
+                <input name="employeeName" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Position</label>
+                <input name="position" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Gender</label>
+                <select name="gender" class="form-select" required>
+                    <option value="">Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Rate Per Day</label>
+                <input name="ratePerDay" type="number" step="0.01" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">No. of Days Worked</label>
+                <input name="daysWorked" type="number" class="form-control" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Calculate</button>
+            <a href="/" class="btn btn-secondary ms-2">Cancel</a>
+        }
+    </div>
+</div>

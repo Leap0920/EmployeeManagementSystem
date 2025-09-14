@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Voting Result";
+}
+
+<div class="container py-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="mb-4">Voting Result</h2>
+
+        <p><strong>Age:</strong> @ViewBag.Age</p>
+        <p><strong>Registered:</strong> @(ViewBag.IsRegistered ? "Yes" : "No")</p>
+        <p class="fs-4 fw-bold">@ViewBag.Result</p>
+
+        <a asp-action="Age" class="btn btn-primary">Back</a>
+    </div>
+</div>

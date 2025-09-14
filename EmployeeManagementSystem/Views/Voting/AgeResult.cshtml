@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Voting Result";
+}
+
+<h2>Voting Result</h2>
+<p>Age: @ViewBag.Age</p>
+<p>Registered: @(ViewBag.IsRegistered ? "Yes" : "No")</p>
+<p><strong>@ViewBag.Result</strong></p>
+
+@Html.ActionLink("Back", "Age")
