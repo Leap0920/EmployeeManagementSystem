@@ -8,31 +8,45 @@ namespace EmployeeManagementSystem.Controllers
 {
     public class VotingController : Controller
     {
+        // GET: /Voting/Age
         [HttpGet]
         public ActionResult Age()
         {
             return View();
         }
 
+        // POST: /Voting/Age
         [HttpPost]
-        public ActionResult Age(int age, bool isRegistered = false)
+        [ValidateAntiForgeryToken]
+        public ActionResult Age(int? age, bool? registered)
         {
-            string result;
+            // Basic input validation
+            if (!age.HasValue || age < 0 || age > 130 || !registered.HasValue)
+            {
+                return View("AgeResult", model: "Invalid Input");
+            }
 
-            if (age >= 18 && isRegistered)
-                result = "Eligible to Vote";
-            else if (age >= 18 && !isRegistered)
-                result = "Please register first";
-            else if (age < 18 && isRegistered)
-                result = "Invalid Input";
+            string message;
+
+            if (age >= 18 && registered.Value)
+            {
+                message = "Eligible to Vote";
+            }
+            else if (age >= 18 && !registered.Value)
+            {
+                message = "Please register first";
+            }
+            else if (age < 18 && registered.Value)
+            {
+                message = "Invalid Input";
+            }
             else
-                result = "Invalid Input";
+            {
+                message = "Invalid Input";
+            }
 
-            ViewBag.Age = age;
-            ViewBag.IsRegistered = isRegistered;
-            ViewBag.Result = result;
-
-            return View("AgeResult");
+            return View("AgeResult", (object)message);
         }
     }
+
 }

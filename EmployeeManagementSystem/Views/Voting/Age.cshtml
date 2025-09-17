@@ -1,15 +1,36 @@
 ﻿@{
-    ViewBag.Title = "Voting Result";
+    ViewBag.Title = "Voting Eligibility Check";
 }
 
-<div class="container py-5">
-    <div class="card shadow-lg p-4">
-        <h2 class="mb-4">Voting Result</h2>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3>Voting Eligibility Check</h3>
+                </div>
+                <div class="card-body p-4 bg-light">
+                    @using (Html.BeginForm("Age", "Voting", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
 
-        <p><strong>Age:</strong> @ViewBag.Age</p>
-        <p><strong>Registered:</strong> @(ViewBag.IsRegistered ? "Yes" : "No")</p>
-        <p class="fs-4 fw-bold">@ViewBag.Result</p>
+                        <div class="mb-3">
+                            <label for="age" class="form-label fw-bold">Enter Your Age</label>
+                            <input id="age" name="age" type="number" class="form-control border-dark" min="0" max="130" required />
+                        </div>
 
-        <a asp-action="Age" class="btn btn-primary">Back</a>
+                        <div class="form-check mb-3">
+                            <input id="registered" name="registered" type="checkbox" value="true" class="form-check-input border-dark" />
+                            <label for="registered" class="form-check-label fw-bold">Registered Voter</label>
+                            <input type="hidden" name="registered" value="false" />
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-dark btn-lg">Check</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
     </div>
 </div>

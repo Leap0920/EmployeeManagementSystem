@@ -3,29 +3,35 @@
 }
 
 <div class="container py-5">
-    <div class="card shadow-lg p-4">
-        <h2 class="mb-4">📊 Salary Computation</h2>
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+            <h2 class="mb-4 text-success">📊 Salary Computation</h2>
 
-        <h5>Employee Details</h5>
-        <ul class="list-group mb-4">
-            <li class="list-group-item bg-dark text-light">ID: @ViewBag.EmployeeID</li>
-            <li class="list-group-item bg-dark text-light">Name: @ViewBag.EmployeeName</li>
-            <li class="list-group-item bg-dark text-light">Position: @ViewBag.Position</li>
-            <li class="list-group-item bg-dark text-light">Gender: @ViewBag.Gender</li>
-        </ul>
+            <h5 class="fw-bold">Employee Details</h5>
+            <table class="table table-bordered table-striped mb-4">
+                <tbody>
+                    <tr><th>Employee ID</th><td>@ViewBag.EmployeeID</td></tr>
+                    <tr><th>Name</th><td>@ViewBag.EmployeeName</td></tr>
+                    <tr><th>Position</th><td>@ViewBag.Position</td></tr>
+                    <tr><th>Gender</th><td>@ViewBag.Gender</td></tr>
+                </tbody>
+            </table>
 
-        <h5>Salary Breakdown</h5>
-        <ul class="list-group">
-            <li class="list-group-item bg-dark text-light">Rate Per Day: @ViewBag.RatePerDay</li>
-            <li class="list-group-item bg-dark text-light">Days Worked: @ViewBag.DaysWorked</li>
-            <li class="list-group-item bg-dark text-light">Gross Pay: @ViewBag.GrossPay</li>
-            <li class="list-group-item bg-dark text-light">SSS: @ViewBag.SSS</li>
-            <li class="list-group-item bg-dark text-light">PhilHealth: @ViewBag.PhilHealth</li>
-            <li class="list-group-item bg-dark text-light">Pag-ibig: @ViewBag.PagIbig</li>
-            <li class="list-group-item bg-dark text-light">Tax: @ViewBag.Tax</li>
-            <li class="list-group-item bg-success text-light fw-bold">Net Pay: @ViewBag.NetPay</li>
-        </ul>
+            <h5 class="fw-bold">Salary Breakdown</h5>
+            <table class="table table-bordered table-hover">
+                <tbody>
+                    <tr><th>Rate Per Day</th><td>@ViewBag.RatePerDay</td></tr>
+                    <tr><th>Days Worked</th><td>@ViewBag.DaysWorked</td></tr>
+                    <tr class="table-info"><th>Gross Pay</th><td>@ViewBag.GrossPay</td></tr>
+                    <tr><th>SSS</th><td>@ViewBag.SSS</td></tr>
+                    <tr><th>PhilHealth</th><td>@ViewBag.PhilHealth</td></tr>
+                    <tr><th>Pag-ibig</th><td>@ViewBag.PagIbig</td></tr>
+                    <tr><th>Tax</th><td>@ViewBag.Tax</td></tr>
+                    <tr class="table-success fw-bold"><th>Net Pay</th><td>@ViewBag.NetPay</td></tr>
+                </tbody>
+            </table>
 
-        <a asp-action="Salary" class="btn btn-primary mt-4">Back</a>
+            @Html.ActionLink("Back", "Salary", "Payroll", null, new { @class = "btn btn-primary px-4 mt-3" })
+        </div>
     </div>
 </div>
